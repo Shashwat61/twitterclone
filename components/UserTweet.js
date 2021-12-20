@@ -14,7 +14,6 @@ function UserTweet() {
     const [tweet, setTweet]=useState('')
     const [count, setCount]=useState(140)
     const [user]=useAuthState(auth)
-    console.log(tweet)
     
     function makeHandle(user){
         return user?.displayName.split(' ').join('').toLowerCase()
@@ -24,7 +23,10 @@ function UserTweet() {
         e.preventDefault()
 
         if(count>=0 && tweet.length>0){
-           db.collection('users').doc(user?.uid).collection('tweets').add({
+           db.collection('tweets').add({
+               name: user?.displayName,
+               email:user?.email,
+               img:user?.photoURL,  
                tweet,
                postedAt:firebase.firestore.FieldValue.serverTimestamp(),
                handle:`@${makeHandle(user)}`

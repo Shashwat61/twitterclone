@@ -4,7 +4,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import TimeAgo from 'react-timeago'
 
-function Tweet({id, name, handle, img, tweet, postedAt}) {
+function Tweet({email, name, handle, img, tweet, postedAt}) {
     
     const secs=Math.floor(Math.abs(new Date() - postedAt?.toDate())/1000)
     const mins=Math.floor(secs/60)
