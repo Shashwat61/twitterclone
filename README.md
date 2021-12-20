@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
-## Clone the project and run ###`npm i`
+## Clone the project 
+Run `npm i`
 This will install all the dependencies required for the project.
 
 ## Available Scripts
@@ -23,6 +24,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+## Run in production mode `npm start`
+This will run the project in production mode.
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
