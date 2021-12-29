@@ -5,9 +5,9 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import ArticleIcon from '@mui/icons-material/Article';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 import {auth} from '../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Sidebar() {
     return (
@@ -20,9 +20,7 @@ function Sidebar() {
                 <MailOutlineIcon  fontSize="large" className="cursor-pointer  hover:bg-gray-300  rounded-full"/>
                 <BookmarkBorderIcon  fontSize="large" className="cursor-pointer  hover:bg-gray-300  rounded-full"/>
                 <ArticleIcon  fontSize="large" className="cursor-pointer  hover:bg-gray-300  rounded-full"/>
-                <PersonOutlineIcon  fontSize="large" className="cursor-pointer  hover:bg-gray-300  rounded-full"/>
-                <AccountCircleIcon onClick={()=>auth.signOut()}  fontSize="large" className="cursor-pointer  hover:bg-gray-300  rounded-full"/>
-
+                <LogoutIcon  onClick={()=>auth.signOut()}  fontSize="large" className="cursor-pointer hover:bg-gray-300  rounded-full"/>
             </div>
         </div>
     )

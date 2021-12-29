@@ -22,7 +22,10 @@ function Tweet({email, name, handle, img, tweet, postedAt}) {
                     <span className="">{handle}</span>
                     <div className="flex items-center">
                         <span className="pb-2 pr-1 font-semibold">.</span>
-                        {mins <1 ? 'just now' :<TimeAgo date={postedAt?.toDate()}/>}
+                        {postedAt!==null && (
+                            // mins<1 ? 'just now':
+                        <TimeAgo date={postedAt?.toDate()}/>
+                        )}
                         </div>
                   </div>
                   <MoreHorizIcon className="cursor-pointer" />

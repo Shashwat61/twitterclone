@@ -3,20 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore';
 import { auth, db } from '../firebase';
 import Users from './Users';
-const users=[
-    {
-        id:1,
-        name:'John Doe',
-        handle:'@johndoe',
-        imgURL:'https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg',
-    },
-    {
-        id:2,
-        name:'Johny Doe',
-        handle:'@johnydoe',
-        imgURL:'https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg',
-    }
-]
+
 function FollowSidebar() {
     const [user]=useAuthState(auth)
     const [followingSnapshot]=useCollectionData(db.collection('users').doc(user?.uid).collection('following'))

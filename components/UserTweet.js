@@ -14,7 +14,7 @@ function UserTweet() {
     const [tweet, setTweet]=useState('')
     const [count, setCount]=useState(140)
     const [user]=useAuthState(auth)
-    
+
     function makeHandle(user){
         return user?.displayName.split(' ').join('').toLowerCase()
     }
@@ -39,8 +39,13 @@ function UserTweet() {
     }
 
     function handleChange(e){
+
         setTweet(e.target.value)
         setCount(140 - e.target.value.length)
+    }
+
+    function handleKeyDown(e){
+        (e.keyCode===32 && tweet.length===0) &&  e.preventDefault()
     }
     return (
         <div className="px-4 pt-1 border">
@@ -49,9 +54,9 @@ function UserTweet() {
                 <AutoAwesomeIcon/>
             </div>
             <div className="flex pt-4">
-            <AccountCircleIcon fontSize="large"/>
+            {user? <img src={user?.photoURL} className="w-8 h-8 object-contain rounded-full " alt={user?.displayName}/> : <AccountCircleIcon fontSize="large" />}
             <form className="w-full ml-2" onSubmit={handleSubmit}>
-            <input value={tweet} onChange={handleChange} type="text" placeholder="What is happening" className="w-10/12 py-1 focus:outline-none focus:border-none focus:ring-0"/>
+            <input value={tweet} onKeyDown={handleKeyDown} onChange={handleChange} type="text" placeholder="What is happening" className="w-10/12 py-1 focus:outline-none focus:border-none focus:ring-0"/>
             {count<11 && <span className={ count<0 ? "ml-2 border-2 rounded-full border-red-400":"ml-2 rounded-full px-1 border-2 border-yellow-400" }>{count}</span>}
             <div className="flex items-center justify-between py-4">
             <div className="flex items-center space-x-5">
